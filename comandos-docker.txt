@@ -1,9 +1,9 @@
 #comandos básicos
 docker ps
 docker-compose.exe up -d
-docker built -t sartorifelipe/php7.1 .
+docker build -t sartorifelipe/php7.1 .
 docker-compose.exe stop
-
+docker exec -it webserver bash
 
 Comando	Função
 $ docker	Listar todos os comandos
