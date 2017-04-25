@@ -15,8 +15,6 @@ services:
     web:
         volumes:
             - "/c/dev/public/sites:/var/www/html"
-        environment:
-            - VIRTUAL_HOST=local.dev    
         depends_on:
             - db-mysql
         image: sartorifelipe/php7.1

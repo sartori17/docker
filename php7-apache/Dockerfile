@@ -3,8 +3,13 @@ MAINTAINER sartori.felipe@gmail.com
 
 RUN a2enmod rewrite
 RUN apt-get update && apt-get install -y vim
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql 
+RUN apt-get install -y zlib1g-dev \ 
+RUN docker-php-ext-install zip
 RUN apt-get install -y xclip
+RUN apt-get install -y git
+RUN git config --global user.name "Felipe Sartori"
+RUN git config --global user.email "sartori.felipe@gmail.com"
 
 WORKDIR /root
 
@@ -27,5 +32,3 @@ RUN /bin/bash -c "./addvhost_docker.sh -u financas.dev -d financas.dev/src"
 RUN /bin/bash -c "./addvhost_docker.sh -u new_site.dev -d new_site.dev/src"
 RUN /bin/bash -c "./addvhost_docker.sh -u sitesimples.dev -d sitesimples.dev/src"
 RUN /bin/bash -c "./addvhost_docker.sh -u son_poo.dev -d son_poo.dev/src"
-
-WORKDIR /var/www/html
